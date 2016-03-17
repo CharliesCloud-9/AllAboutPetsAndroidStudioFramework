@@ -41,7 +41,7 @@ public class Tab1FunDapterSubActivity_3a extends AppCompatActivity implements As
         ImageLoader.getInstance().init(UILConfig());
 
         ArrayList<ProductLayoutPositioning_3a> productLayoutPositioning3bList = new JsonConverter<ProductLayoutPositioning_3a>().toArrayList(jsonText, ProductLayoutPositioning_3a.class);
-        // 1:12:18 min https://www.youtube.com/watch?v=1QK_uindqHg
+
         BindDictionary<ProductLayoutPositioning_3a> dict = new BindDictionary<ProductLayoutPositioning_3a>();
         dict.addStringField(R.id.tvName, new StringExtractor<ProductLayoutPositioning_3a>() {
             @Override
@@ -83,7 +83,6 @@ public class Tab1FunDapterSubActivity_3a extends AppCompatActivity implements As
         ListView lvProduct = (ListView)findViewById(R.id.lvProduct);
         lvProduct.setAdapter(adapter);
 
-        // 1:22:01 min https://www.youtube.com/watch?v=1QK_uindqHg
     }
 
     private ImageLoaderConfiguration UILConfig(){

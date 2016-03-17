@@ -20,5 +20,4 @@ public class ProductLayoutPositioning_3a {
     @SerializedName("image_url")
     public String image_url;
 
-    //01:24:09 https://www.youtube.com/watch?v=1QK_uindqHg
 }
