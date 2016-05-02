@@ -1,6 +1,7 @@
 package com.carlosgallegos.androidphpmysql;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,9 +11,11 @@ public class SplashActivity_0 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_0);
-        //Added sound: the next 2 lines
-        // MediaPlayer sound = MediaPlayer.create(this, R.raw.s);
-        //sound.start(); //Method that starts the sound
+
+        //Add Sound
+        //MediaPlayer sound = MediaPlayer.create(this, R.raw.petmeowbark);
+       // sound.start(); //Method that starts the sound
+
         //Added timer criteria
         Thread timer = new Thread(){
             public void run(){

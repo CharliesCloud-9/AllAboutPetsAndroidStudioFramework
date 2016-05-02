@@ -3,10 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.carlosgallegos.androidphpmysql">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
@@ -26,31 +24,33 @@
 
         <!-- android:debuggable="true" -->
 
-
         <activity
             android:name=".SplashActivity_0"
+            android:launchMode="singleTop"
             android:theme="@style/AAP_Custom_CG">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
+        <activity android:name=".LoginActivity_2" />
         <activity
-            android:name=".LoginActivity_2"
-            android:label="All About Pets"> <!-- 28 spaces -->
+            android:name=".Tab1FunDapterSubActivityCat"
+            android:label="Cat Symptoms"
+            android:parentActivityName=".ExpListViewDictCat">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ExpListViewDictCat" />
         </activity>
-        <activity
-            android:name=".Tab1FunDapterSubActivity_3a"
-            android:label="Pet Symptoms" />
         <activity android:name=".TabHostActivity_3" />
         <activity android:name=".Tab2" />
         <activity android:name=".Tab3" />
         <activity android:name=".Tab4" />
-        <activity android:name=".SignUpActivity_2b"
+        <activity
+            android:name=".SignUpActivity_2b"
             android:label="Sign up" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -65,9 +65,25 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-
-
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".ExpListViewDictCat"
+            android:label="Cat Symptoms"
+            android:parentActivityName=".SymptomChecker">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".SymptomChecker"/>
+        </activity>
+        <activity android:name=".Tab2Test" />
+        <activity
+            android:name=".SymptomChecker"
+            android:label="Symptom Checker" />
+        <activity android:name=".ExpListViewDictDog"
+                android:label="Dog Symptoms"
+            android:parentActivityName=".SymptomChecker">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SymptomChecker"/>
         </activity>
     </application>
 

@@ -4,6 +4,7 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ExpandableListView;
 import android.widget.TabHost;
 
 @SuppressWarnings("deprecation")
@@ -21,9 +22,9 @@ public class TabHostActivity_3 extends TabActivity {
         TabHost.TabSpec tab3 = tabHost.newTabSpec("ABA THREE");
         TabHost.TabSpec tab4 = tabHost.newTabSpec("ABA FOUR");
 
-        //tab1.setIndicator("Tab1FunDapterSubActivity_3a");
+        //tab1.setIndicator("Tab1FunDapterSubActivityCat");
         tab1.setIndicator("", getResources().getDrawable(R.drawable.search));
-        tab1.setContent(new Intent(this, Tab1FunDapterSubActivity_3a.class));
+        tab1.setContent(new Intent(this, SymptomChecker.class));
 
         //tab2.setIndicator("Tab2MapsVet_3b");
         tab2.setIndicator("", getResources().getDrawable(R.drawable.vet));

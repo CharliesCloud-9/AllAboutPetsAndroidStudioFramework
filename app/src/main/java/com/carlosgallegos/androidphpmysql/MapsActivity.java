@@ -44,12 +44,10 @@ public class MapsActivity extends FragmentActivity {
         List<Address> addressList = null;
 
 
-
-
-
-
         if(location != null || !location.equals(""))
         {
+
+
             Geocoder geocoder = new Geocoder(this);
             try {
                 addressList = geocoder.getFromLocationName(location , 1);

@@ -3,6 +3,7 @@ package com.carlosgallegos.androidphpmysql;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.style.ReplacementSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +36,8 @@ public class LoginActivity_2 extends AppCompatActivity implements View.OnClickLi
             }
         });
         btnLogin.setOnClickListener(this);
+        
+
     }
 
     @Override

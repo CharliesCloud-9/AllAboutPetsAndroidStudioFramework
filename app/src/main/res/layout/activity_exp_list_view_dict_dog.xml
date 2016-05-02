@@ -7,19 +7,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Tab1FunDapterSubActivityCat"
+    tools:context="com.carlosgallegos.androidphpmysql.ExpListViewDictDog"
     android:background="#FFFFFF">
 
-
-
-
-    <ListView
+    <SearchView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvProduct"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/searchView" />
+        android:id="@+id/searchView3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
-
+    <ExpandableListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/exp_list"
+        android:layout_below="@+id/searchView3"></ExpandableListView>
 
 </RelativeLayout>

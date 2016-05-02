@@ -3,6 +3,7 @@ package com.carlosgallegos.androidphpmysql;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -22,16 +23,18 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 import java.util.ArrayList;
 
-public class Tab1FunDapterSubActivity_3a extends AppCompatActivity implements AsyncResponse {
+public class Tab1FunDapterSubActivityCat extends AppCompatActivity implements AsyncResponse, View.OnClickListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_fundapter_3a);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
-        PostResponseAsyncTask task = new PostResponseAsyncTask(Tab1FunDapterSubActivity_3a.this, this);
+          PostResponseAsyncTask task = new PostResponseAsyncTask(Tab1FunDapterSubActivityCat.this, this);
 
-        task.execute("http://10.0.2.2/client/product.php");
+           task.execute("http://10.0.2.2/client/product.php");
 
     }
 
@@ -43,47 +46,53 @@ public class Tab1FunDapterSubActivity_3a extends AppCompatActivity implements As
         ArrayList<ProductLayoutPositioning_3a> productLayoutPositioning3bList = new JsonConverter<ProductLayoutPositioning_3a>().toArrayList(jsonText, ProductLayoutPositioning_3a.class);
 
         BindDictionary<ProductLayoutPositioning_3a> dict = new BindDictionary<ProductLayoutPositioning_3a>();
-        dict.addStringField(R.id.tvName, new StringExtractor<ProductLayoutPositioning_3a>() {
-            @Override
-            public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
-                return productLayoutPositioning3b.name;
-            }
-        });
-        dict.addStringField(R.id.tvQty, new StringExtractor<ProductLayoutPositioning_3a>() {
-            @Override
-            public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
-                return "" + productLayoutPositioning3b.qty;
-            }
-        });
-        dict.addStringField(R.id.tvPrice, new StringExtractor<ProductLayoutPositioning_3a>() {
-            @Override
-            public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
-                return "" + productLayoutPositioning3b.price;
-            }
-        });
 
-        dict.addDynamicImageField(R.id.imageView, new StringExtractor<ProductLayoutPositioning_3a>() {
-                    @Override
-                    public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
-                        return productLayoutPositioning3b.image_url;
-                    }
-                }, new DynamicImageLoader() {
-                    @Override
-                    public void loadImage(String url, ImageView view) {
-                        ImageLoader.getInstance().displayImage(url, view);
-                        view.setPadding(0, 0, 0, 0);
-                        view.setAdjustViewBounds(true);
-                    }
+            dict.addStringField(R.id.tvName, new StringExtractor<ProductLayoutPositioning_3a>() {
+
+                @Override
+                public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
+                    return productLayoutPositioning3b.name;
                 }
-        );
+            });
+            dict.addStringField(R.id.tvQty, new StringExtractor<ProductLayoutPositioning_3a>() {
+                @Override
+                public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
+                    return "" + productLayoutPositioning3b.qty;
+                }
+            });
+            dict.addStringField(R.id.tvPrice, new StringExtractor<ProductLayoutPositioning_3a>() {
+                @Override
+                public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
+                    return "" + productLayoutPositioning3b.price;
+                }
+            });
 
-        FunDapter<ProductLayoutPositioning_3a> adapter = new FunDapter<>(Tab1FunDapterSubActivity_3a.this,
-                productLayoutPositioning3bList, R.layout.product_layoutpositioning_3a, dict);
+            dict.addDynamicImageField(R.id.imageView, new StringExtractor<ProductLayoutPositioning_3a>() {
+                        @Override
+                        public String getStringValue(ProductLayoutPositioning_3a productLayoutPositioning3b, int position) {
+                            return productLayoutPositioning3b.image_url;
+                        }
+                    }, new DynamicImageLoader() {
+                        @Override
+                        public void loadImage(String url, ImageView view) {
+                            ImageLoader.getInstance().displayImage(url, view);
+                            view.setPadding(0, 0, 0, 0);
+                            view.setAdjustViewBounds(true);
+                        }
+                    }
+            );
 
-        ListView lvProduct = (ListView)findViewById(R.id.lvProduct);
-        lvProduct.setAdapter(adapter);
+
+            FunDapter<ProductLayoutPositioning_3a> adapter = new FunDapter<>(Tab1FunDapterSubActivityCat.this,
+                    productLayoutPositioning3bList, R.layout.product_layoutpositioning_3a, dict);
+
+            ListView lvProduct = (ListView) findViewById(R.id.lvProduct);
+            lvProduct.setAdapter(adapter);
+
+
 
     }
+
 
     private ImageLoaderConfiguration UILConfig(){
         DisplayImageOptions defaultOptions =
@@ -111,4 +120,9 @@ public class Tab1FunDapterSubActivity_3a extends AppCompatActivity implements As
         return config;
     }
 
+
+    @Override
+    public void onClick(View v) {
+
+    }
 }

@@ -12,14 +12,18 @@
     android:orientation="vertical"
     android:weightSum="1"
     android:paddingEnd="@dimen/abc_action_bar_navigation_padding_start_material"
-    android:paddingStart="@dimen/abc_action_bar_navigation_padding_start_material">
+    android:paddingStart="@dimen/abc_action_bar_navigation_padding_start_material"
+    android:background="#FFFFFF">
+
+    
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etUsername"
         android:paddingTop="20dp"
-        android:hint="Your Username"/>
+        android:hint="Your Username"
+        android:singleLine="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -27,14 +31,17 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/etPassword"
-        android:hint="Your Password"/>
+        android:hint="Your Password"
+        android:singleLine="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/btnLogin"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="cursive"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,6 +53,8 @@
         android:text="Sign up here!"
         android:id="@+id/btnSignUp"
         android:layout_gravity="center_horizontal"
-        android:clickable="true" />
+        android:clickable="true"
+        android:fontFamily="cursive"
+        android:textStyle="bold"/>
 </LinearLayout>
 
