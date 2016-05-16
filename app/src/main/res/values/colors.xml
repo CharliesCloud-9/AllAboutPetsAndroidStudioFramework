@@ -6,5 +6,5 @@
     <color name="primary_dark_material_light">#00ddff</color>
     <color name="primary_material_light">#00ddff</color>
     <color name="accent_material_light">#00ddff</color>
-    <color name="background_material_light">#fafafa</color>
+    <color name="background_material_light">#ffffff</color>
 </resources>

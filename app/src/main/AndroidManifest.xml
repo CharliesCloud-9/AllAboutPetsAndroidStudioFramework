@@ -6,6 +6,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
  The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -16,7 +22,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -25,7 +31,7 @@
         <!-- android:debuggable="true" -->
 
         <activity
-            android:name=".SplashActivity_0"
+            android:name=".SplashIntro"
             android:launchMode="singleTop"
             android:theme="@style/AAP_Custom_CG">
             <intent-filter>
@@ -34,22 +40,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity_2" />
         <activity
-            android:name=".Tab1FunDapterSubActivityCat"
+            android:name=".LoginActivity"
+            android:label="All About Pets"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SymptomCheckerListView"
             android:label="Cat Symptoms"
-            android:parentActivityName=".ExpListViewDictCat">
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TabHostActivity" />
+        <activity
+            android:name=".Tab2ShelterZipCode"
+            android:label="Adopt A Pet"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ShelterUserListView"
+            android:label="Shelter Database"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Tab2ShelterZipCode">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ExpListViewDictCat" />
+                android:value=".Tab2ShelterZipCode" />
         </activity>
-        <activity android:name=".TabHostActivity_3" />
-        <activity android:name=".Tab2" />
-        <activity android:name=".Tab3" />
-        <activity android:name=".Tab4" />
         <activity
-            android:name=".SignUpActivity_2b"
-            android:label="Sign up" />
+            android:name=".SignUpActivity"
+            android:label="Sign up"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -57,34 +78,94 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".ExpListViewDictCat"
-            android:label="Cat Symptoms"
-            android:parentActivityName=".SymptomChecker">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".SymptomChecker"/>
-        </activity>
-        <activity android:name=".Tab2Test" />
-        <activity
-            android:name=".SymptomChecker"
-            android:label="Symptom Checker" />
-        <activity android:name=".ExpListViewDictDog"
-                android:label="Dog Symptoms"
-            android:parentActivityName=".SymptomChecker">
+            android:name=".GoogleMapsActivity"
+            android:label="Google Maps"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Tab4MapsChoice">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SymptomChecker"/>
+                android:value=".Tab4MapsChoice" />
         </activity>
+        <activity
+            android:name=".Tab1HomePageListView"
+            android:label="Home"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Tab3SymptomChecker"
+            android:label="Symptom Checker"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SymptomCheckBox"
+            android:label="Symptom Checker"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".SymptomChooseCatBodyArea">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SymptomChooseCatBodyArea" />
+        </activity>
+        <activity android:name=".ShelterPositioningSerialize" />
+        <activity
+            android:name=".LoginAdmin"
+            android:label="Admin Login"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity
+            android:name=".ShelterInsertAdmin"
+            android:label="Admin Update"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LoginAdmin">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginAdmin" />
+        </activity>
+        <activity
+            android:name=".SymptomChooseCatBodyArea"
+            android:label="Symptom Checker"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Tab3SymptomChecker">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Tab3SymptomChecker" />
+        </activity>
+        <activity
+            android:name=".SymptomChooseDogBodyArea"
+            android:label="Symptom Checker"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Tab3SymptomChecker" />
+        </activity>
+        <activity
+            android:name=".CameraGallery"
+            android:label="Camera and Gallery"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Tab4MapsChoice"
+            android:label="Maps"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BingMapsActivity"
+            android:label="Bing Maps"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Tab4MapsChoice">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Tab4MapsChoice" />
+        </activity>
+        <activity android:name=".AssignAdminCred"
+            android:label="Assign Admin"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

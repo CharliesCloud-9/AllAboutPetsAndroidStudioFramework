@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidPhpMySql</string>
+    <string name="app_name">All About Pets</string>
     <string name="title_activity_maps">Map</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyAPgStxv7WawVKGt9RwD_a5ZRdN9pK7w3I

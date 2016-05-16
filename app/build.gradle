@@ -29,4 +29,5 @@ dependencies {
     compile 'com.github.amigold.fundapter:library:1.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'
     compile 'com.google.android.gms:play-services:7.0+'
+    compile files('libs/PhotoUtil.jar')
 }
